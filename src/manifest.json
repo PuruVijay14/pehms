@@ -1,9 +1,9 @@
 {
   "name": "pehms",
   "short_name": "pehms",
-  "theme_color": "#1976d2",
-  "background_color": "#fafafa",
-  "display": "standalone",
+  "theme_color": "rgb(98, 0, 234)",
+  "background_color": "#fff",
+  "display": "fullscreen",
   "scope": "/",
   "start_url": "/",
   "icons": [

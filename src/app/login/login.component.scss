@@ -1,0 +1,24 @@
+mat-card-content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+mat-card {
+    width: 20%;
+}
+:host {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+mat-card-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-right: 1%;
+    margin-bottom: 1%;
+}
