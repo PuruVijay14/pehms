@@ -1,3 +1,88 @@
-<p>
-  registration works!
-</p>
+<mat-card>
+  <mat-card-header>
+    <mat-card-title class="heading">
+      Registration
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Designation</mat-label>
+        <mat-select #nameDesigSelect="matSelect" value="Mr">
+          <mat-option value="Mr">Mr</mat-option>
+          <mat-option value="Mrs">Mrs</mat-option>
+          <mat-option value="Miss">Miss</mat-option>
+          <mat-option value="MS">MS</mat-option>
+          <mat-option value="Master">Master</mat-option>
+          <mat-option value="Baby">Baby</mat-option>
+          <mat-option value="Baba">Baba</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Patient Name</mat-label>
+        <input matInput #name="matInput">
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Designation</mat-label>
+        <mat-select #relativeDesigSelect value="S/O">
+          <mat-option value="S/O">S/O</mat-option>
+          <mat-option value="D/O">D/O</mat-option>
+          <mat-option value="W/O">W/O</mat-option>
+          <mat-option value="M/O">M/O</mat-option>
+          <mat-option value="C/O">C/O</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Relative Name</mat-label>
+        <input matInput #relativeName="matInput">
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>Age</mat-label>
+        <input matInput #age="matInput">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-select #gender placeholder="Gender">
+          <mat-option value="M">Male</mat-option>
+          <mat-option value="F">Female</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>Phone</mat-label>
+        <input matInput #phone="matInput">
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-divider></mat-divider>
+    </div>
+    <br>
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>Consultation Charges</mat-label>
+        <input matInput #consultation="matInput">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Consultation Charges</mat-label>
+        <input matInput #consultation="matInput">
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>Consultation Charges</mat-label>
+        <input matInput #consultation="matInput">
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-divider></mat-divider>
+    </div>
+    <br>
+    <div style="justify-content: flex-end">
+      <button mat-button color="primary">Register</button>
+    </div>
+  </mat-card-content>
+</mat-card>
