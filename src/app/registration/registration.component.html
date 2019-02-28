@@ -5,10 +5,11 @@
     </mat-card-title>
   </mat-card-header>
   <mat-card-content>
+
     <div>
       <mat-form-field appearance="fill">
         <mat-label>Designation</mat-label>
-        <mat-select #nameDesigSelect="matSelect" value="Mr">
+        <mat-select [(ngModel)]="nameDesigSelect" value="Mr">
           <mat-option value="Mr">Mr</mat-option>
           <mat-option value="Mrs">Mrs</mat-option>
           <mat-option value="Miss">Miss</mat-option>
@@ -20,13 +21,14 @@
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>Patient Name</mat-label>
-        <input matInput #name="matInput">
+        <input matInput autocomplete="false" [(ngModel)]="patientName">
+        <mat-icon matPrefix>account_circle</mat-icon>
       </mat-form-field>
     </div>
     <div>
       <mat-form-field appearance="fill">
         <mat-label>Designation</mat-label>
-        <mat-select #relativeDesigSelect value="S/O">
+        <mat-select [(ngModel)]="relativeDesigSelect">
           <mat-option value="S/O">S/O</mat-option>
           <mat-option value="D/O">D/O</mat-option>
           <mat-option value="W/O">W/O</mat-option>
@@ -36,16 +38,18 @@
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>Relative Name</mat-label>
-        <input matInput #relativeName="matInput">
+        <input matInput [(ngModel)]="relativeName">
+        <mat-icon matPrefix>supervised_user_circle</mat-icon>
       </mat-form-field>
     </div>
     <div>
       <mat-form-field appearance="outline">
         <mat-label>Age</mat-label>
-        <input matInput #age="matInput">
+        <mat-icon matPrefix>date_range</mat-icon>
+        <input matInput type="number" [(ngModel)]="age">
       </mat-form-field>
       <mat-form-field appearance="outline">
-        <mat-select #gender placeholder="Gender">
+        <mat-select [(ngModel)]="gender" placeholder="Gender" value="M">
           <mat-option value="M">Male</mat-option>
           <mat-option value="F">Female</mat-option>
         </mat-select>
@@ -54,7 +58,8 @@
     <div>
       <mat-form-field appearance="outline">
         <mat-label>Phone</mat-label>
-        <input matInput #phone="matInput">
+        <mat-icon matPrefix>phone</mat-icon>
+        <input matInput [(ngModel)]="phone">
       </mat-form-field>
     </div>
     <div>
@@ -64,25 +69,29 @@
     <div>
       <mat-form-field appearance="outline">
         <mat-label>Consultation Charges</mat-label>
-        <input matInput #consultation="matInput">
+        <input [(ngModel)]="consultationPrice" matInput min="0" type="number" value="250" #consultation="matInput">
+        <mat-icon matPrefix>attach_money</mat-icon>
       </mat-form-field>
       <mat-form-field appearance="outline">
-        <mat-label>Consultation Charges</mat-label>
-        <input matInput #consultation="matInput">
+        <mat-label>Discount</mat-label>
+        <input [(ngModel)]="discountPercant" matInput value="0" type="number" max="100" #discount="matInput">
+        <mat-icon style="font-family: 'Google Sans Regular'" matSuffix>%</mat-icon>
       </mat-form-field>
     </div>
     <div>
       <mat-form-field appearance="outline">
-        <mat-label>Consultation Charges</mat-label>
-        <input matInput #consultation="matInput">
+        <mat-label>Final Amount</mat-label>
+        <input matInput type="number" [value]="consultationPrice * (1 - discountPercant / 100)" #finalAmount="matInput">
+        <mat-icon matPrefix>money</mat-icon>
       </mat-form-field>
+
     </div>
     <div>
       <mat-divider></mat-divider>
     </div>
     <br>
     <div style="justify-content: flex-end">
-      <button mat-button color="primary">Register</button>
+      <button mat-button color="primary" (click)="register()">Register</button>
     </div>
   </mat-card-content>
 </mat-card>

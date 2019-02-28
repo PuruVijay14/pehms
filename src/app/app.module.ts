@@ -1,24 +1,21 @@
-import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
-
-import { AppRoutingModule } from "./app-routing.module";
-import { AppComponent } from "./app.component";
+import { AngularFireModule } from "@angular/fire";
+import { FlexLayoutModule } from "@angular/flex-layout";
+import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from "@angular/material";
+import { MomentDateAdapter } from "@angular/material-moment-adapter";
+import { BrowserModule } from "@angular/platform-browser";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { ServiceWorkerModule } from "@angular/service-worker";
 import { environment } from "../environments/environment";
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { AngularFireModule } from "@angular/fire";
-import { LoginComponent } from "./login/login.component";
-import { NavComponent } from "./nav/nav.component";
-import { MaterialModule } from "./modules/material/material.module";
-import { FlexLayoutModule } from "@angular/flex-layout";
+import { AppRoutingModule } from "./app-routing.module";
+import { AppComponent } from "./app.component";
 import { IndexComponent } from "./index/index.component";
+import { LoginComponent } from "./login/login.component";
+import { MaterialModule } from "./modules/material/material.module";
+import { NavComponent } from "./nav/nav.component";
 import { RegistrationComponent } from "./registration/registration.component";
-import { DateAdapter } from "@angular/material";
-import { MAT_DATE_FORMATS, MAT_DATE_LOCALE } from "@angular/material";
-import {
-  MomentDateModule,
-  MomentDateAdapter
-} from "@angular/material-moment-adapter";
+import { FormsModule } from '@angular/forms';
+import { AngularFirestoreModule } from "@angular/fire/firestore";
 
 export const MY_FORMATS = {
   parse: {
@@ -48,8 +45,10 @@ export const MY_FORMATS = {
     }),
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule.enablePersistence(),
     MaterialModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    FormsModule
   ],
   providers: [
     { provide: MAT_DATE_LOCALE, useValue: "it" }, //you can change useValue
