@@ -1,5 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit } from "@angular/core";
 import { AngularFirestore } from "@angular/fire/firestore";
+import { firestore } from "firebase/app";
+import { MiscService } from "../services/misc.service";
 
 @Component({
   selector: "app-registration",
@@ -28,7 +30,7 @@ export class RegistrationComponent implements OnInit {
   // Loading
   loading = false;
 
-  constructor(private afstore: AngularFirestore) {}
+  constructor(private afstore: AngularFirestore, private misc: MiscService) {}
 
   ngOnInit() {}
 
@@ -36,15 +38,16 @@ export class RegistrationComponent implements OnInit {
     const id = this.afstore.createId();
     await this.afstore.doc(`patients/${id}`).set({
       nameDesig: this.nameDesigSelect,
-      patientName: this.patientName,
+      patientName: this.misc.toTitleCase(this.patientName),
       relativeDesigSelect: this.relativeDesigSelect,
-      relativeName: this.relativeName,
+      relativeName: this.misc.toTitleCase(this.relativeName),
       age: +this.age,
       gender: this.gender,
       phone: this.phone,
       consultationPrice: this.consultationPrice,
       discountPercant: this.discountPercant,
-      finalAmount: this.consultationPrice * (1 - this.discountPercant / 100)
+      finalAmount: this.consultationPrice * (1 - this.discountPercant / 100),
+      timestamp: firestore.Timestamp.now().toMillis()
     });
   }
 }

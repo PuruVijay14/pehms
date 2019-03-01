@@ -4,12 +4,15 @@
   </mat-card-header>
   <form (submit)="submit.focus();signIn($event,username.value, password.value)">
     <mat-card-content>
+      <div class="error">{{auth.error | async}}</div>
       <mat-form-field appearance="outline">
         <mat-label>Username</mat-label>
+        <mat-icon matPrefix>account_circle</mat-icon>
         <input autofocus matInput #username="matInput">
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>Password</mat-label>
+        <mat-icon matPrefix>vpn_key</mat-icon>
         <input autocomplete matInput type="password" #password="matInput">
       </mat-form-field>
     </mat-card-content>
