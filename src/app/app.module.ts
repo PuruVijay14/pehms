@@ -16,6 +16,8 @@ import { NavComponent } from "./nav/nav.component";
 import { RegistrationComponent } from "./registration/registration.component";
 import { FormsModule } from '@angular/forms';
 import { AngularFirestoreModule } from "@angular/fire/firestore";
+import { PrettyPhonePipe } from './pretty-phone.pipe';
+import { HttpClientModule } from '@angular/common/http';
 
 export const MY_FORMATS = {
   parse: {
@@ -35,7 +37,8 @@ export const MY_FORMATS = {
     LoginComponent,
     NavComponent,
     IndexComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    PrettyPhonePipe
   ],
   imports: [
     BrowserModule,
@@ -48,7 +51,8 @@ export const MY_FORMATS = {
     AngularFirestoreModule.enablePersistence(),
     MaterialModule,
     FlexLayoutModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [
     { provide: MAT_DATE_LOCALE, useValue: "it" }, //you can change useValue

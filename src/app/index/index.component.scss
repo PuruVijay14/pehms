@@ -1,7 +1,15 @@
 :host {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     height: 100%;
+}
+
+mat-card {
+    margin-top: 75px;
+    width: 61.8%;
+    table {
+        width: 100%;
+    }
 }

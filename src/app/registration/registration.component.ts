@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, OnInit } from "@angular/core";
 import { AngularFirestore } from "@angular/fire/firestore";
 import { firestore } from "firebase/app";
 import { MiscService } from "../services/misc.service";
+import { Patient } from "../interfaces/patient";
 
 @Component({
   selector: "app-registration",
@@ -36,14 +37,14 @@ export class RegistrationComponent implements OnInit {
 
   async register() {
     const id = this.afstore.createId();
-    await this.afstore.doc(`patients/${id}`).set({
+    await this.afstore.doc<Patient>(`patients/${id}`).set({
       nameDesig: this.nameDesigSelect,
       patientName: this.misc.toTitleCase(this.patientName),
-      relativeDesigSelect: this.relativeDesigSelect,
+      relativeDesig: this.relativeDesigSelect,
       relativeName: this.misc.toTitleCase(this.relativeName),
       age: +this.age,
       gender: this.gender,
-      phone: this.phone,
+      phone: `${this.phone}`,
       consultationPrice: this.consultationPrice,
       discountPercant: this.discountPercant,
       finalAmount: this.consultationPrice * (1 - this.discountPercant / 100),

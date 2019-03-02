@@ -1,5 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { DataService } from "../services/data.service";
+import { Patient } from "../interfaces/patient";
+import { Observable } from "rxjs";
 
 @Component({
   selector: "app-index",
@@ -8,10 +10,16 @@ import { DataService } from "../services/data.service";
 })
 export class IndexComponent implements OnInit {
   returned: any;
+
+  patientsData: Observable<Patient[]>;
+
+  displayedColumns = ["patientName", "relativeName", "phone"];
+
   constructor(private data: DataService) {}
 
-  date = new Date("March 1, 2019");
+  date = new Date("March 2, 2019");
+
   ngOnInit() {
-    this.data.getPatients(this.date).subscribe(console.log);
+    this.patientsData = this.data.getPatients(this.date);
   }
 }

@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { AngularFirestore } from "@angular/fire/firestore";
+import { Patient } from '../interfaces/patient';
 
 @Injectable({
   providedIn: "root"
@@ -9,7 +10,7 @@ export class DataService {
 
   getPatients(date: Date) {
     const query = this.afStore
-      .collection("patients", ref =>
+      .collection<Patient>("patients", ref =>
         ref
           .where("timestamp", ">=", date.getTime())
           .where("timestamp", "<", date.getTime() + 86400000)

@@ -4189,6 +4189,15 @@ less@3.9.0:
     request "^2.83.0"
     source-map "~0.6.0"
 
+libphonenumber-js@^1.7.9:
+  version "1.7.9"
+  resolved "https://registry.yarnpkg.com/libphonenumber-js/-/libphonenumber-js-1.7.9.tgz#687ee7e19bd29d11b1aaa1f769b9c3bdb6fab122"
+  integrity sha512-Pi5XtTeC2E727x46a4jgV/vgZPe9/R6w/ApkFXFqwUzZXS2qZUbRSIgR4yR42SOJWkPHxfIK8lG8CXLOgcsEFQ==
+  dependencies:
+    minimist "^1.2.0"
+    semver-compare "^1.0.0"
+    xml2js "^0.4.17"
+
 license-webpack-plugin@2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/license-webpack-plugin/-/license-webpack-plugin-2.1.0.tgz#83acaa6e89c3c5316effdd80cb4ec9c5cd8efc2f"
@@ -6119,6 +6128,11 @@ selfsigned@^1.9.1:
   integrity sha512-9AukTiDmHXGXWtWjembZ5NDmVvP2695EtpgbCsxCa68w3c88B+alqbmZ4O3hZ4VWGXeGWzEVdvqgAJD8DQPCDw==
   dependencies:
     node-forge "0.7.5"
+
+semver-compare@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/semver-compare/-/semver-compare-1.0.0.tgz#0dee216a1c941ab37e9efb1788f6afc5ff5537fc"
+  integrity sha1-De4hahyUGrN+nvsXiPavxf9VN/w=
 
 semver-dsl@^1.0.1:
   version "1.0.1"
